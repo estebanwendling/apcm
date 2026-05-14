@@ -6,7 +6,7 @@
     "contact": {
       "mail": "apcm.munster.68@gmail.com",
       "telephone": "",
-      "adresse": "Colmar, Alsace",
+      "adresse": "",
       "whatsapp": "https://chat.whatsapp.com/Lu5OsFDZx2GLUT0YGV0pLe",
       "helloasso": "https://www.helloasso.com/associations/association-pour-la-promotion-du-chemin-de-fer-colmar-metzeral/adhesions/bulletin-d-adhesion-2026",
       "facebook": "https://www.facebook.com/apcolmarmetzeral/?locale=fr_FR"
@@ -23,7 +23,7 @@
     }
   ],
   "images": {
-    "logo": ""
+    "logo": "/images/logo-apcm.png"
   },
   "actualites": [
     {
