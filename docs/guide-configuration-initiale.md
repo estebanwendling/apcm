@@ -4,7 +4,7 @@ Ce guide est destiné à la personne technique qui met en place le site pour la 
 
 **Dépôt GitHub :** `https://github.com/estebanwendling/apcm`  
 **Hébergement :** Netlify (déploiement automatique depuis GitHub)  
-**Interface admin :** `https://VOTRE-SITE.netlify.app/admin`
+**Interface admin :** `https://capable-tiramisu-c2ff59.netlify.app/admin`
 
 ---
 
