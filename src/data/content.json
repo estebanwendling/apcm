@@ -23,7 +23,8 @@
     }
   ],
   "images": {
-    "logo": "/images/logo-apcm.png"
+    "logo": "/images/logo-apcm.png",
+    "couverture": "/images/train-hiver.jpg"
   },
   "actualites": [
     {

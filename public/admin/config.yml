@@ -8,7 +8,7 @@ public_folder: /images
 
 collections:
   - name: "site"
-    label: "Site"
+    label: "Contenu du site de l'APCM"
     files:
 
       - name: "association"
@@ -45,6 +45,7 @@ collections:
             widget: "object"
             fields:
               - { label: "Logo", name: "logo", widget: "image", required: false }
+              - { label: "Image de couverture (page d'accueil)", name: "couverture", widget: "image", required: false }
           - label: "Actualités"
             name: "actualites"
             widget: "list"

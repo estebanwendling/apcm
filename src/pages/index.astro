@@ -2,7 +2,7 @@
 import RichText from '../components/RichText.astro';
 import content from '../data/content.json';
 
-const { association, sections, actualites } = content;
+const { association, sections, actualites, images } = content;
 const { contact } = association;
 
 ---
@@ -40,7 +40,7 @@ const { contact } = association;
         )}
         {contact.helloasso && (
           <a href={contact.helloasso} target="_blank" rel="noopener noreferrer" aria-label="Adhérer via HelloAsso">
-            <img src="/images/helloassologo.jpg" alt="HelloAsso" class="h-10 w-auto object-contain drop-shadow" />
+            <img src="/images/helloasso.png" alt="HelloAsso" class="h-10 w-auto object-contain drop-shadow" />
           </a>
         )}
       </div>
@@ -50,7 +50,7 @@ const { contact } = association;
   <!-- Image de fond plein écran (passe sous l'en-tête transparent) -->
   <div class="relative h-screen w-full overflow-hidden">
     <img
-      src="/images/train-hiver.jpg"
+      src={images.couverture || "/images/train-hiver.jpg"}
       alt="Train de la ligne Colmar-Metzeral en hiver"
       class="absolute inset-0 w-full h-full object-cover"
     />
