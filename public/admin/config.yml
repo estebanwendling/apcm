@@ -1,0 +1,58 @@
+backend:
+  name: github
+  repo: estebanwendling/apcm
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: "site"
+    label: "Site"
+    files:
+
+      - name: "association"
+        label: "Présentation & Contact"
+        file: "src/data/content.json"
+        fields:
+          - label: "Association"
+            name: "association"
+            widget: "object"
+            fields:
+              - { label: "Nom", name: "nom", widget: "string" }
+              - { label: "Slogan", name: "slogan", widget: "string" }
+              - label: "Description"
+                name: "description"
+                widget: "markdown"
+              - label: "Contact"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "Adresse e-mail", name: "mail", widget: "string", required: false }
+                  - { label: "Téléphone", name: "telephone", widget: "string", required: false }
+                  - { label: "Adresse postale", name: "adresse", widget: "string", required: false }
+                  - { label: "WhatsApp (numéro)", name: "whatsapp", widget: "string", required: false }
+                  - { label: "Lien HelloAsso", name: "helloasso", widget: "string", required: false }
+                  - { label: "Lien Facebook", name: "facebook", widget: "string", required: false }
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Contenu", name: "contenu", widget: "markdown" }
+          - label: "Images"
+            name: "images"
+            widget: "object"
+            fields:
+              - { label: "Logo", name: "logo", widget: "image", required: false }
+          - label: "Actualités"
+            name: "actualites"
+            widget: "list"
+            fields:
+              - { label: "Titre", name: "titre", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "DD/MM/YYYY", time_format: false }
+              - { label: "Résumé", name: "resume", widget: "string" }
+              - { label: "Contenu", name: "contenu", widget: "markdown" }
+              - { label: "Image", name: "image", widget: "image", required: false }

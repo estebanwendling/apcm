@@ -1,0 +1,37 @@
+{
+  "association": {
+    "nom": "APCM",
+    "slogan": "Association pour la Promotion du Chemin de fer Colmar-Metzeral",
+    "description": "L'APCM est une association loi 1901 dédiée à la défense et à la promotion de la ligne ferroviaire Colmar–Metzeral. Nous accompagnons les usagers du quotidien, sensibilisons les élus et le grand public à l'importance de cette ligne, et organisons des voyages en train pour faire découvrir notre patrimoine ferroviaire régional.",
+    "contact": {
+      "mail": "contact@apcm-train.fr",
+      "telephone": "",
+      "adresse": "Colmar, Alsace",
+      "whatsapp": "",
+      "helloasso": "",
+      "facebook": ""
+    }
+  },
+  "sections": [
+    {
+      "titre": "Notre mission",
+      "contenu": "La ligne Colmar–Metzeral traverse le cœur de la vallée de Munster, reliant les villages alsaciens au réseau ferroviaire régional. Notre association veille à son maintien, à l'amélioration de son service, et à sa valorisation auprès des habitants et des touristes.\n\n- Défense des intérêts des usagers\n- Dialogue avec les autorités compétentes (SNCF, Région Grand Est)\n- Organisation de voyages et d'événements ferroviaires"
+    },
+    {
+      "titre": "Rejoindre l'association",
+      "contenu": "Vous utilisez la ligne au quotidien, vous êtes passionné de trains, ou vous souhaitez simplement soutenir notre action ? Rejoignez-nous ! L'adhésion est ouverte à tous et contribue directement à notre capacité d'action.\n\nPour adhérer ou faire un don, rendez-vous sur notre page HelloAsso ou contactez-nous par mail."
+    }
+  ],
+  "images": {
+    "logo": ""
+  },
+  "actualites": [
+    {
+      "titre": "Bienvenue sur le site de l'APCM",
+      "date": "2026-05-14",
+      "resume": "Notre association lance son nouveau site web pour mieux communiquer avec les usagers et les sympathisants.",
+      "contenu": "Bienvenue sur le site de l'Association pour la Promotion du Chemin de fer Colmar-Metzeral. Vous trouverez ici toutes les informations sur nos activités, nos actualités, et les moyens de nous contacter ou de nous rejoindre.",
+      "image": ""
+    }
+  ]
+}

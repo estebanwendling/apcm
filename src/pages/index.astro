@@ -1,0 +1,135 @@
+---
+import RichText from '../components/RichText.astro';
+import content from '../data/content.json';
+
+const { association, sections, images, actualites } = content;
+const { contact } = association;
+---
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={association.slogan} />
+  <title>{association.nom} — {association.slogan}</title>
+  <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+  <!-- En-tête -->
+  <header class="bg-green-800 text-white shadow-lg">
+    <div class="max-w-4xl mx-auto px-6 py-6 flex items-center gap-4">
+      {images.logo && (
+        <img src={images.logo} alt={`Logo ${association.nom}`} class="h-16 w-auto" />
+      )}
+      <div>
+        <h1 class="text-2xl font-bold tracking-tight">{association.nom}</h1>
+        <p class="text-green-200 text-sm mt-0.5">{association.slogan}</p>
+      </div>
+    </div>
+    <nav class="bg-green-900 text-green-100 text-sm">
+      <div class="max-w-4xl mx-auto px-6 py-2 flex gap-6">
+        <a href="#presentation" class="hover:text-white transition-colors">Présentation</a>
+        <a href="#actualites" class="hover:text-white transition-colors">Actualités</a>
+        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-10 space-y-14">
+
+    <!-- Présentation -->
+    <section id="presentation">
+      <RichText content={association.description} class="text-lg leading-relaxed text-slate-700" />
+    </section>
+
+    <!-- Sections dynamiques -->
+    {sections.map((section) => (
+      <section class="border-t border-slate-200 pt-10">
+        <h2 class="text-xl font-semibold text-green-800 mb-4">{section.titre}</h2>
+        <RichText content={section.contenu} />
+      </section>
+    ))}
+
+    <!-- Actualités -->
+    {actualites.length > 0 && (
+      <section id="actualites" class="border-t border-slate-200 pt-10">
+        <h2 class="text-xl font-semibold text-green-800 mb-6">Actualités</h2>
+        <div class="space-y-8">
+          {actualites.map((actu) => (
+            <article class="bg-white rounded-xl shadow-sm border border-slate-100 overflow-hidden">
+              {actu.image && (
+                <img src={actu.image} alt={actu.titre} class="w-full h-48 object-cover" />
+              )}
+              <div class="p-6">
+                <p class="text-xs text-slate-400 mb-1">
+                  {new Date(actu.date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}
+                </p>
+                <h3 class="text-lg font-semibold text-slate-900 mb-2">{actu.titre}</h3>
+                <p class="text-slate-600 mb-4">{actu.resume}</p>
+                <RichText content={actu.contenu} class="text-sm" />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Contact -->
+    <section id="contact" class="border-t border-slate-200 pt-10">
+      <h2 class="text-xl font-semibold text-green-800 mb-6">Nous contacter</h2>
+      <div class="bg-white rounded-xl shadow-sm border border-slate-100 p-6 grid sm:grid-cols-2 gap-4">
+
+        {contact.mail && (
+          <a href={`mailto:${contact.mail}`} class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <span class="text-2xl">✉️</span>
+            <span>{contact.mail}</span>
+          </a>
+        )}
+
+        {contact.telephone && (
+          <a href={`tel:${contact.telephone}`} class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <span class="text-2xl">📞</span>
+            <span>{contact.telephone}</span>
+          </a>
+        )}
+
+        {contact.whatsapp && (
+          <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <span class="text-2xl">💬</span>
+            <span>WhatsApp</span>
+          </a>
+        )}
+
+        {contact.adresse && (
+          <div class="flex items-center gap-3 text-slate-700">
+            <span class="text-2xl">📍</span>
+            <span>{contact.adresse}</span>
+          </div>
+        )}
+
+        {contact.facebook && (
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <span class="text-2xl">📘</span>
+            <span>Facebook</span>
+          </a>
+        )}
+
+        {contact.helloasso && (
+          <a href={contact.helloasso} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <span class="text-2xl">🤝</span>
+            <span>Adhérer / Faire un don (HelloAsso)</span>
+          </a>
+        )}
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-green-900 text-green-200 text-center text-sm py-6 mt-14">
+    <p>© {new Date().getFullYear()} {association.nom} — {association.slogan}</p>
+  </footer>
+
+</body>
+</html>
