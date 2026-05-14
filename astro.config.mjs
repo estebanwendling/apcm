@@ -2,8 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://estebanwendling.github.io',
-  base: '/apcm',
+  site: 'https://apcm.netlify.app',
   integrations: [tailwind()],
   output: 'static',
 });
