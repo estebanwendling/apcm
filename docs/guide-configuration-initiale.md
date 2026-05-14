@@ -38,35 +38,20 @@ Le premier déploiement se lance automatiquement. Le site sera accessible à `ht
 
 ## Étape 3 — Configurer l'authentification OAuth (Netlify)
 
-Le CMS Decap a besoin d'un proxy OAuth pour que les administrateurs puissent se connecter avec GitHub. Netlify fournit ce service gratuitement.
+Le CMS Decap a besoin d'un proxy OAuth pour que les administrateurs puissent se connecter avec GitHub. Netlify fournit ce service gratuitement et gère automatiquement le Client ID et le Client Secret.
 
-### 3a. Créer un compte Netlify
+### 3a. Créer un compte Netlify et un site
 
-1. Allez sur [netlify.com](https://netlify.com)
-2. Créez un compte gratuit (pas besoin de créer un site)
+1. Allez sur [netlify.com](https://netlify.com) et créez un compte gratuit
+2. Créez un nouveau site (peut être vide — il sert uniquement de proxy OAuth)
 
-### 3b. Créer une OAuth App GitHub
+### 3b. Activer GitHub comme provider OAuth
 
-1. Connecté sur le compte GitHub `estebanwendling`, allez dans **Settings → Developer settings → OAuth Apps → New OAuth App**
-2. Remplissez :
-   - **Application name** : `APCM CMS`
-   - **Homepage URL** : `https://estebanwendling.github.io/apcm`
-   - **Authorization callback URL** : `https://api.netlify.com/auth/done`
-3. Cliquez sur **"Register application"**
-4. Notez le **Client ID** affiché
-5. Cliquez sur **"Generate a new client secret"** et notez la valeur (elle ne sera affichée qu'une seule fois)
+1. Dans votre site Netlify, allez dans **Site configuration → Access control → OAuth**
+2. Sous "Authentication Providers", cliquez sur **"Install GitHub"**
+3. Autorisez Netlify à accéder à GitHub
 
-### 3c. Ajouter les secrets au dépôt GitHub
-
-1. Dans le dépôt `estebanwendling/apcm`, allez dans **Settings → Secrets and variables → Actions**
-2. Cliquez sur **"New repository secret"** et ajoutez :
-   - Nom : `OAUTH_CLIENT_ID` → valeur : le Client ID de l'étape précédente
-   - Nom : `OAUTH_CLIENT_SECRET` → valeur : le Client Secret
-
-### 3d. Connecter Netlify à GitHub OAuth
-
-1. Dans votre compte Netlify, allez dans **User settings → Applications → OAuth**
-2. Ajoutez une nouvelle application GitHub avec les mêmes Client ID et Client Secret
+Netlify génère automatiquement les identifiants OAuth — vous n'avez rien d'autre à configurer.
 
 ---
 
