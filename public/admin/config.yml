@@ -31,7 +31,7 @@ collections:
                   - { label: "Adresse e-mail", name: "mail", widget: "string", required: false }
                   - { label: "Téléphone", name: "telephone", widget: "string", required: false }
                   - { label: "Adresse postale", name: "adresse", widget: "string", required: false }
-                  - { label: "WhatsApp (numéro)", name: "whatsapp", widget: "string", required: false }
+                  - { label: "Lien WhatsApp (groupe)", name: "whatsapp", widget: "string", required: false }
                   - { label: "Lien HelloAsso", name: "helloasso", widget: "string", required: false }
                   - { label: "Lien Facebook", name: "facebook", widget: "string", required: false }
           - label: "Sections"

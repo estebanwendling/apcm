@@ -2,7 +2,7 @@
 import RichText from '../components/RichText.astro';
 import content from '../data/content.json';
 
-const { association, sections, images, actualites } = content;
+const { association, sections, actualites } = content;
 const { contact } = association;
 ---
 <!doctype html>
@@ -16,25 +16,53 @@ const { contact } = association;
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans">
 
-  <!-- En-tête -->
+  <!-- En-tête : logo à gauche, icônes sociales à droite -->
   <header class="bg-green-800 text-white shadow-lg">
-    <div class="max-w-4xl mx-auto px-6 py-6 flex items-center gap-4">
-      {images.logo && (
-        <img src={images.logo} alt={`Logo ${association.nom}`} class="h-16 w-auto" />
-      )}
-      <div>
-        <h1 class="text-2xl font-bold tracking-tight">{association.nom}</h1>
-        <p class="text-green-200 text-sm mt-0.5">{association.slogan}</p>
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <img src="/images/logo-apcm.png" alt={`Logo ${association.nom}`} class="h-16 w-auto" />
+        <div>
+          <h1 class="text-2xl font-bold tracking-tight">{association.nom}</h1>
+          <p class="text-green-200 text-sm mt-0.5">{association.slogan}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        {contact.facebook && (
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" aria-label="Facebook APCM">
+            <img src="/images/facebook.png" alt="Facebook" class="h-10 w-auto object-contain" />
+          </a>
+        )}
+        {contact.whatsapp && (
+          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Groupe WhatsApp APCM">
+            <img src="/images/whatsapp-2288548_640.png" alt="WhatsApp" class="h-10 w-auto object-contain" />
+          </a>
+        )}
+        {contact.helloasso && (
+          <a href={contact.helloasso} target="_blank" rel="noopener noreferrer" aria-label="Adhérer via HelloAsso">
+            <img src="/images/helloassologo.jpg" alt="HelloAsso" class="h-10 w-auto object-contain" />
+          </a>
+        )}
       </div>
     </div>
-    <nav class="bg-green-900 text-green-100 text-sm">
-      <div class="max-w-4xl mx-auto px-6 py-2 flex gap-6">
-        <a href="#presentation" class="hover:text-white transition-colors">Présentation</a>
-        <a href="#actualites" class="hover:text-white transition-colors">Actualités</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-      </div>
-    </nav>
   </header>
+
+  <!-- Image de fond plein écran -->
+  <div class="relative h-screen w-full overflow-hidden">
+    <img
+      src="/images/train-hiver.jpg"
+      alt="Train de la ligne Colmar-Metzeral en hiver"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0 bg-black/45 flex items-center justify-center">
+      <div class="text-center text-white px-6">
+        <h2 class="text-4xl md:text-5xl font-bold drop-shadow-lg">{association.nom}</h2>
+        <p class="text-xl mt-4 text-white/90 drop-shadow max-w-xl mx-auto">{association.slogan}</p>
+        <a href="#presentation" class="mt-8 inline-block bg-green-700 hover:bg-green-600 text-white font-semibold px-8 py-3 rounded-full transition-colors shadow-lg">
+          Découvrir
+        </a>
+      </div>
+    </div>
+  </div>
 
   <main class="max-w-4xl mx-auto px-6 py-10 space-y-14">
 
@@ -94,10 +122,24 @@ const { contact } = association;
           </a>
         )}
 
+        {contact.facebook && (
+          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <img src="/images/facebook.png" alt="" class="h-6 w-auto" />
+            <span>Facebook</span>
+          </a>
+        )}
+
         {contact.whatsapp && (
-          <a href={`https://wa.me/${contact.whatsapp.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
-            <span class="text-2xl">💬</span>
-            <span>WhatsApp</span>
+          <a href={contact.whatsapp} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <img src="/images/whatsapp-2288548_640.png" alt="" class="h-6 w-auto" />
+            <span>Groupe WhatsApp</span>
+          </a>
+        )}
+
+        {contact.helloasso && (
+          <a href={contact.helloasso} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
+            <img src="/images/helloassologo.jpg" alt="" class="h-6 w-auto" />
+            <span>Adhérer / Faire un don (HelloAsso)</span>
           </a>
         )}
 
@@ -106,20 +148,6 @@ const { contact } = association;
             <span class="text-2xl">📍</span>
             <span>{contact.adresse}</span>
           </div>
-        )}
-
-        {contact.facebook && (
-          <a href={contact.facebook} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
-            <span class="text-2xl">📘</span>
-            <span>Facebook</span>
-          </a>
-        )}
-
-        {contact.helloasso && (
-          <a href={contact.helloasso} target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 text-slate-700 hover:text-green-700 transition-colors">
-            <span class="text-2xl">🤝</span>
-            <span>Adhérer / Faire un don (HelloAsso)</span>
-          </a>
         )}
 
       </div>

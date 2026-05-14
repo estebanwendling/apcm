@@ -98,3 +98,16 @@ npm run build        # build de production dans dist/
 
 - `docs/guide-mise-a-jour.md` : pas-à-pas illustré pour accéder à `/admin` et modifier le contenu
 - `docs/guide-images.md` : comment uploader une image via le CMS
+
+## Liens et contacts réels
+
+- **Mail** : apcm.munster.68@gmail.com
+- **Facebook** : https://www.facebook.com/apcolmarmetzeral/?locale=fr_FR
+- **WhatsApp (groupe)** : https://chat.whatsapp.com/Lu5OsFDZx2GLUT0YGV0pLe
+- **HelloAsso** : https://www.helloasso.com/associations/association-pour-la-promotion-du-chemin-de-fer-colmar-metzeral/adhesions/bulletin-d-adhesion-2026
+
+## Mise en page
+
+- En-tête : logo (`/images/logo-apcm.png`) à gauche ; icônes Facebook, WhatsApp, HelloAsso sur la même ligne à droite
+- Page d'accueil : image `/images/train-hiver.jpg` en arrière-plan plein écran (hero)
+- Les images (`/public/images/`) sont modifiables par les administrateurs via le CMS (upload Decap)
