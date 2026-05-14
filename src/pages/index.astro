@@ -50,11 +50,15 @@ const { contact } = association;
 
   <!-- Image de fond plein écran (passe sous l'en-tête transparent) -->
   <div class="relative h-screen w-full overflow-hidden">
-    <img
-      src={images.couverture || "/images/train-hiver.jpg"}
-      alt="Train de la ligne Colmar-Metzeral en hiver"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
+    <picture>
+      <source srcset="/images/train-hiver.webp" type="image/webp" />
+      <img
+        src={images.couverture || "/images/train-hiver.jpg"}
+        alt="Train de la ligne Colmar-Metzeral en hiver"
+        class="absolute inset-0 w-full h-full object-cover"
+        fetchpriority="high"
+      />
+    </picture>
     <div class="absolute inset-0 bg-black/45 flex items-center justify-center">
       <div class="text-center text-white px-6">
         <h2 class="text-4xl md:text-5xl font-bold drop-shadow-lg">{association.nom}</h2>
